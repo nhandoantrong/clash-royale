@@ -4,6 +4,7 @@ import PlayerList from './PlayerList/PlayerList';
 import Upgrade from './Upgrade/Upgrade';
 import Swal from "sweetalert2";
 
+import initialData from '../../fake-data/data.json';
 export default class Lobby extends Component {
 
 
@@ -31,6 +32,22 @@ export default class Lobby extends Component {
                         }
                     )
                     socket.emit("chalenge-accepted",{from:data.to,to:data.from});
+                    socket.emit("initial-castle",{
+                        username:data.to,
+                        guard1: {
+                            hp:initialData.tower[1].Guard.HP,
+                            def: initialData.tower[1].Guard.DEF
+                        },
+                        guard2: {
+                            hp:initialData.tower[1].Guard.HP,
+                            def: initialData.tower[1].Guard.DEF
+                        },
+                        castle: {
+                            hp:initialData.tower[0].King.HP,
+                            def: initialData.tower[0].King.DEF
+                        },
+                        enemy:data.from
+                    })
                     history.push("/gameplay");
                 }
                 else {
@@ -54,6 +71,22 @@ export default class Lobby extends Component {
                     type: 'success',
                 }
             )
+            socket.emit("initial-castle",{
+                username:data.to,
+                guard1: {
+                    hp:initialData.tower[1].Guard.HP,
+                    def: initialData.tower[1].Guard.DEF
+                },
+                guard2: {
+                    hp:initialData.tower[1].Guard.HP,
+                    def: initialData.tower[1].Guard.DEF
+                },
+                castle: {
+                    hp:initialData.tower[0].King.HP,
+                    def: initialData.tower[0].King.DEF
+                },
+                enemy:data.from
+            })
             history.push("/gameplay");
 
         })

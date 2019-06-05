@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom'
 import Routes from './Routes';
 import io from 'socket.io-client'
 
+
 function App() {
   const socket = io('localhost:5000');
 

@@ -8,7 +8,7 @@ export default class TroopBoard extends Component {
         const renderTroop = data.troops.map((troop, index) => {
             return (
                 <Grid item xs={2} style={{padding : "0 5px"}} key={index}>
-                    <Troop  troop={troop} />
+                    <Troop attack={this.props.attack}  troop={troop} />
                 </Grid>
             )
         })

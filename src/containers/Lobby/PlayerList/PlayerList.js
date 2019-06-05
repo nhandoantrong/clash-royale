@@ -18,7 +18,7 @@ export default class PlayerList extends Component {
 
     componentDidMount(){
         const token = localStorage.getItem("token").split(" ")[1];
-
+        console.log(JSON.parse(atob(token.split('.')[1])));
         const username = (JSON.parse(atob(token.split('.')[1]))).username;
         this.username=username;
         const {socket} = this.props;

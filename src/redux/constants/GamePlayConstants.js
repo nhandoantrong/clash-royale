@@ -1,0 +1,1 @@
+export const CHANGE_GAME_PLAY = "CHANGE_GAME_PLAY"
